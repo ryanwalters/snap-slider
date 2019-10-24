@@ -10,5 +10,31 @@
 
 <small>Partial Safari support refers to the `scrollBy` method's `ScrollToOptions` parameter not being supported. This prevents the smooth scrolling behavior. The [smoothscroll-polyfill](https://www.npmjs.com/package/smoothscroll-polyfill) can be used until Safari has proper support.</small>
 
+### Install
+
+```
+$ npm install snap-slider
+```
+
 ### Usage
 
+```javascript
+import SnapSlider from 'snap-slider';
+import 'snap-slider/src/snap-slider.css';
+
+const snapSlider = new SnapSlider(document.querySelector('#your-slider'));
+
+// Coming soon:
+// snapSlider.addSlides(...nodes);
+```
+
+Sample markup for above example:
+```html
+<div id="your-slider">
+    <img src="//placehold.it/300x300" alt="fancy image" />
+    <img src="//placehold.it/300x300" alt="fancy image" />
+    <img src="//placehold.it/300x300" alt="fancy image" />
+    <img src="//placehold.it/300x300" alt="fancy image" />
+    <img src="//placehold.it/300x300" alt="fancy image" />
+</div>
+```
