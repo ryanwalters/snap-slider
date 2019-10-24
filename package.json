@@ -1,8 +1,12 @@
 {
   "name": "snap-slider",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Lightweight slider using CSS Scroll Snap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanwalters/snap-slider"
+  },
+  "main": "./src/snap-slider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve"
@@ -17,18 +21,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@britannica/eslint-config": "^1.3.1",
-    "bootstrap": "^4.3.1",
-    "eslint": "^5.3.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "jquery": "^3.4.0",
-    "normalize.css": "^8.0.1",
-    "parcel-bundler": "^1.12.3",
-    "popper.js": "^1.15.0"
-  },
-  "dependencies": {
     "serve": "^11.0.0"
-  }
+  },
+  "dependencies": {}
 }

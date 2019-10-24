@@ -1,0 +1,22 @@
+.rw-slider {
+    position: relative;
+}
+
+.rw-track {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    white-space: nowrap;
+}
+
+.rw-track::-webkit-scrollbar {
+    height: 0;
+}
+
+.rw-slide {
+    display: inline-flex;
+    scroll-snap-align: start;
+    vertical-align: top;
+}
