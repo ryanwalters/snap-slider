@@ -1,6 +1,6 @@
 {
   "name": "snap-slider",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Lightweight slider using CSS Scroll Snap",
   "repository": {
     "type": "git",
