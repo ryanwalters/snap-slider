@@ -1,7 +1,7 @@
 {
   "name": "snap-slider",
   "version": "0.1.0",
-  "description": "Lightweight slider using CSS Scroll Snap",
+  "description": "Lightweight, easily customizable slider. 665 bytes gzipped.",
   "repository": {
     "type": "git",
     "url": "https://github.com/ryanwalters/snap-slider"
