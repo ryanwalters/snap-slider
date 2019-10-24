@@ -9,7 +9,8 @@
   "main": "./src/snap-slider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "serve"
+    "serve": "serve",
+    "postpublish": "git push --follow-tags"
   },
   "keywords": [
     "snap",
