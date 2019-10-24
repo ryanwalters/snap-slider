@@ -38,3 +38,5 @@ Sample markup for above example:
     <img src="//placehold.it/300x300" alt="fancy image" />
 </div>
 ```
+
+The children of `#your-slider` can be anything (e.g. `div`, `picture`, whatever), not only `img` elements.
