@@ -1,6 +1,6 @@
 # snap-slider
 
-> Lightweight, easily customizable slider. 665 bytes gzipped.
+> Lightweight, easily customizable slider. 692 bytes gzipped.
 
 ### Browser support
 
