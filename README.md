@@ -22,10 +22,25 @@ $ npm install snap-slider
 import SnapSlider from 'snap-slider';
 import 'snap-slider/src/snap-slider.css';
 
-const snapSlider = new SnapSlider(document.querySelector('#your-slider'));
+const { $track } = new SnapSlider({ 
+  $slider: document.querySelector('#your-slider'),
+  $buttonPrev: document.querySelector('.custom-previous-button'), // Optional
+  $buttonNext: document.querySelector('.custom-next-button'), // Optional
+  align: 'center', // Optional, must be one of: start (default), center, end
+});
 
-// Coming soon:
-// snapSlider.addSlides(...nodes);
+// $track is an HTMLElement, so you have access to all the standard JS methods and properties 
+
+// Examples:
+// Append 
+
+$track.append(document.querySelector('.new-slide')); // Single slide
+$track.append(...document.querySelectorAll('.more-slides')); // Multiple slides
+
+// Prepend
+
+$track.prepend(document.querySelector('.new-slide')); // Single slide
+$track.prepend(...document.querySelectorAll('.more-slides')); // Multiple slides
 ```
 
 Sample markup for above example:
