@@ -1,7 +1,7 @@
 {
   "name": "snap-slider",
   "version": "0.2.1",
-  "description": "Lightweight, easily customizable slider. 665 bytes gzipped.",
+  "description": "Lightweight, easily customizable slider",
   "repository": {
     "type": "git",
     "url": "https://github.com/ryanwalters/snap-slider"
