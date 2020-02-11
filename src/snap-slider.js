@@ -9,8 +9,8 @@ export default class SnapSlider {
 
   constructor({
     $slider,
-    $buttonPrev = SnapSlider.createButton('Previous'),
-    $buttonNext = SnapSlider.createButton('Next'),
+    $buttonPrev,
+    $buttonNext,
     align = 'start',
   }) {
     this.$slider = $slider;
@@ -37,9 +37,19 @@ export default class SnapSlider {
 
     this.$slider.append(this.$track);
 
-    // Append arrows
+    // Build and append arrows if existing arrows weren't passed
 
-    this.$slider.append(this.$buttonPrev, this.$buttonNext);
+    if (!$buttonPrev) {
+      this.$buttonPrev = SnapSlider.createButton('Previous');
+
+      this.$slider.append(this.$buttonPrev);
+    }
+
+    if (!$buttonNext) {
+      this.$buttonNext = SnapSlider.createButton('Next');
+
+      this.$slider.append(this.$buttonNext);
+    }
 
     // --- Listeners and observers
 
