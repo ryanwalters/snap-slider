@@ -2,7 +2,7 @@
 
 ![minified + gzip size](https://flat.badgen.net/bundlephobia/minzip/snap-slider)
 
-> Lightweight, easily customizable slider. 692 bytes minified + gzipped.
+> Lightweight, easily customizable slider.
 
 ### Browser support
 
