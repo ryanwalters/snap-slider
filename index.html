@@ -61,6 +61,10 @@
         .material-icons:hover {
             opacity: 0.85;
         }
+
+        #snap-slider {
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -77,9 +81,9 @@
 
         <div style="position: relative;">
             <button id="previous" class="btn d-none d-sm-inline">
-                <i class="material-icons">keyboard_arrow_left</i>
+                <i class="material-icons rounded">keyboard_arrow_left</i>
             </button>
-            <div id="snap-slider">
+            <div id="snap-slider" class="rounded">
                 <img src="https://picsum.photos/id/1026/400/300" alt="" />
                 <img src="https://picsum.photos/id/1032/400/300" alt="" />
                 <img src="https://picsum.photos/id/1040/400/300" alt="" />
@@ -95,7 +99,7 @@
                 <img src="https://picsum.photos/id/134/400/300" alt="" />
             </div>
             <button id="next" class="btn d-none d-sm-inline">
-                <i class="material-icons">keyboard_arrow_right</i>
+                <i class="material-icons rounded">keyboard_arrow_right</i>
             </button>
         </div>
 
