@@ -19,7 +19,7 @@
     "css",
     "js"
   ],
-  "author": "",
+  "author": "Ryan Walters",
   "license": "MIT",
   "devDependencies": {
     "serve": "^11.3.0"
