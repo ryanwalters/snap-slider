@@ -18,6 +18,10 @@
 $ npm install snap-slider
 ```
 
+### Demo
+
+https://ryanwalters.github.io/snap-slider/
+
 ### Usage
 
 ```javascript
