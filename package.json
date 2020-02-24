@@ -10,7 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve",
-    "postpublish": "git push --follow-tags"
+    "postpublish": "git push --follow-tags",
+    "prepare-release": "standard-version && prettier --write CHANGELOG.md"
   },
   "keywords": [
     "snap",
@@ -22,7 +23,33 @@
   "author": "Ryan Walters",
   "license": "MIT",
   "devDependencies": {
-    "serve": "^11.3.0"
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1",
+    "serve": "^11.3.0",
+    "standard-version": "^7.1.0"
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        0,
+        "always"
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {}
 }
