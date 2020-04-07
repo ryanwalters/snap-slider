@@ -17,7 +17,7 @@ export default class SnapSlider {
     this.$track = document.createElement('div');
     this.$buttonNext = $buttonNext;
     this.$buttonPrev = $buttonPrev;
-    
+
     // --- Assemble the slider
 
     // Apply classes
@@ -27,6 +27,7 @@ export default class SnapSlider {
 
     for (const $slide of this.$slider.children) {
       $slide.classList.add('rw-slide');
+      $slide.style.scrollSnapAlign = align;
     }
 
     // Move slides into track
@@ -84,10 +85,11 @@ export default class SnapSlider {
 
   addObservers() {
     // Disable Previous button when the first slide is 100% in view
-    
+
     this.prevButtonObserver = new IntersectionObserver(([entry]) => {
       this.$buttonPrev.disabled = entry.isIntersecting;
       this.$buttonPrev.classList.toggle('rw-disabled', entry.isIntersecting);
+      this.$slider.classList.toggle('rw-prev-disabled', entry.isIntersecting);
     }, {
       root: this.$track,
       threshold: 1,
@@ -100,6 +102,7 @@ export default class SnapSlider {
     this.nextButtonObserver = new IntersectionObserver(([entry]) => {
       this.$buttonNext.disabled = entry.isIntersecting;
       this.$buttonNext.classList.toggle('rw-disabled', entry.isIntersecting);
+      this.$slider.classList.toggle('rw-next-disabled', entry.isIntersecting);
     }, {
       root: this.$track,
       threshold: 1,
