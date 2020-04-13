@@ -86,10 +86,12 @@ export default class SnapSlider {
   addObservers() {
     // Disable Previous button when the first slide is 100% in view
 
-    this.prevButtonObserver = new IntersectionObserver(([entry]) => {
-      this.$buttonPrev.disabled = entry.isIntersecting;
-      this.$buttonPrev.classList.toggle('rw-disabled', entry.isIntersecting);
-      this.$slider.classList.toggle('rw-prev-disabled', entry.isIntersecting);
+    this.prevButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
+      const isIntersecting = intersectionRatio === 1;
+
+      this.$buttonPrev.disabled = isIntersecting;
+      this.$buttonPrev.classList.toggle('rw-disabled', isIntersecting);
+      this.$slider.classList.toggle('rw-prev-disabled', isIntersecting);
     }, {
       root: this.$track,
       threshold: 1,
@@ -99,10 +101,12 @@ export default class SnapSlider {
 
     // Disable the Next button when the last slide is 100% in view
 
-    this.nextButtonObserver = new IntersectionObserver(([entry]) => {
-      this.$buttonNext.disabled = entry.isIntersecting;
-      this.$buttonNext.classList.toggle('rw-disabled', entry.isIntersecting);
-      this.$slider.classList.toggle('rw-next-disabled', entry.isIntersecting);
+    this.nextButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
+      const isIntersecting = intersectionRatio === 1;
+
+      this.$buttonNext.disabled = isIntersecting;
+      this.$buttonNext.classList.toggle('rw-disabled', isIntersecting);
+      this.$slider.classList.toggle('rw-next-disabled', isIntersecting);
     }, {
       root: this.$track,
       threshold: 1,
