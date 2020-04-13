@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/ryanwalters/snap-slider/compare/v0.2.3...v0.3.0) (2020-04-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Any implementations relying on an `align` value other than `start` will no longer be aligned properly. Please manually set this CSS property for now. It's possible this option will return sometime before v1.0.0.
+
+### Bug Fixes
+
+* manually calculate isIntersecting to fix buggy behavior ([026151b](https://github.com/ryanwalters/snap-slider/commit/026151beee6b79d25b21eea236c0ac26ce9088b7))
+
+
+* remove align option ([7a343a4](https://github.com/ryanwalters/snap-slider/commit/7a343a4606272a19dafa5e79df2e75f7fa2d496e))
+
 ### [0.2.3](https://github.com/ryanwalters/snap-slider/compare/v0.2.2...v0.2.3) (2020-04-07)
 
 
