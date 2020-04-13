@@ -7,14 +7,16 @@ export default class SnapSlider {
    */
 
   constructor({
-    $slider,
-    $buttonPrev,
-    $buttonNext,
-  }) {
+                $slider,
+                $buttonPrev,
+                $buttonNext,
+              }) {
     this.$slider = $slider;
     this.$track = document.createElement('div');
     this.$buttonNext = $buttonNext;
     this.$buttonPrev = $buttonPrev;
+
+    this.addMutationObservers();
 
     // --- Assemble the slider
 
@@ -23,9 +25,6 @@ export default class SnapSlider {
     this.$slider.classList.add('rw-slider');
     this.$track.classList.add('rw-track');
 
-    for (const $slide of this.$slider.children) {
-      $slide.classList.add('rw-slide');
-    }
 
     // Move slides into track
 
@@ -52,7 +51,7 @@ export default class SnapSlider {
     // --- Listeners and observers
 
     this.attachButtonListeners();
-    this.addObservers();
+    this.addIntersectionObservers();
   }
 
   /**
@@ -68,7 +67,6 @@ export default class SnapSlider {
     });
 
     this.$buttonNext.addEventListener('click', () => {
-      console.log(this.$track.clientWidth);
       this.$track.scrollBy({
         left: this.$track.clientWidth,
         behavior: 'smooth',
@@ -77,10 +75,34 @@ export default class SnapSlider {
   }
 
   /**
-   * Observe various things...
+   * MutationObservers on the track
    */
 
-  addObservers() {
+  addMutationObservers() {
+    // When adding or removing elements from the track...
+
+    this.mutationObserver = new MutationObserver(([entry]) => {
+      // ...add the .rw-slide class to each new node
+
+      entry.addedNodes.forEach(node => node.classList.add('rw-slide'));
+
+      // ...re-observe the first and last elements
+
+      this.prevButtonObserver.disconnect();
+      this.prevButtonObserver.observe(this.$track.firstElementChild);
+
+      this.nextButtonObserver.disconnect();
+      this.nextButtonObserver.observe(this.$track.lastElementChild);
+    });
+
+    this.mutationObserver.observe(this.$track, { childList: true });
+  }
+
+  /**
+   * IntersectionObservers on buttons
+   */
+
+  addIntersectionObservers() {
     // Disable Previous button when the first slide is 100% in view
 
     this.prevButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
@@ -110,24 +132,6 @@ export default class SnapSlider {
     });
 
     this.nextButtonObserver.observe(this.$track.lastElementChild);
-
-    // When adding or removing elements from the track...
-
-    this.mutationObserver = new MutationObserver(([entry]) => {
-      // ...add the .rw-slide class to each new node
-
-      entry.addedNodes.forEach(node => node.classList.add('rw-slide'));
-
-      // ...re-observe the first and last elements
-
-      this.prevButtonObserver.disconnect();
-      this.prevButtonObserver.observe(this.$track.firstElementChild);
-
-      this.nextButtonObserver.disconnect();
-      this.nextButtonObserver.observe(this.$track.lastElementChild);
-    });
-
-    this.mutationObserver.observe(this.$track, { childList: true });
   }
 
   /**
