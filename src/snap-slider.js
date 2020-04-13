@@ -4,14 +4,12 @@ export default class SnapSlider {
    * @param {Element} $slider
    * @param {Element} [$buttonPrev]
    * @param {Element} [$buttonNext]
-   * @param {string} [align]        Can be one of: start (default), center, end
    */
 
   constructor({
     $slider,
     $buttonPrev,
     $buttonNext,
-    align = 'start',
   }) {
     this.$slider = $slider;
     this.$track = document.createElement('div');
@@ -27,7 +25,6 @@ export default class SnapSlider {
 
     for (const $slide of this.$slider.children) {
       $slide.classList.add('rw-slide');
-      $slide.style.scrollSnapAlign = align;
     }
 
     // Move slides into track
