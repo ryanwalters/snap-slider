@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/ryanwalters/snap-slider/compare/v0.3.1...v0.3.2) (2020-04-21)
+
+
+### Bug Fixes
+
+* lower threshold to 0.94 ([1d52644](https://github.com/ryanwalters/snap-slider/commit/1d52644ef38e13f1c93449de150f2678ccf6d5f0))
+
 ### [0.3.1](https://github.com/ryanwalters/snap-slider/compare/v0.3.0...v0.3.1) (2020-04-21)
 
 
