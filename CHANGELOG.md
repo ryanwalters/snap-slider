@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/ryanwalters/snap-slider/compare/v0.3.0...v0.3.1) (2020-04-21)
+
+
+### Bug Fixes
+
+* lower IntersectionObserver threshold to fix buttons failing to disable ([566244c](https://github.com/ryanwalters/snap-slider/commit/566244c866b8f017d4054b303c8639c1b9bc8b9b))
+* remove console.log ([6804ce2](https://github.com/ryanwalters/snap-slider/commit/6804ce29c804e9251802f70b4b366777068c9967))
+
 ## [0.3.0](https://github.com/ryanwalters/snap-slider/compare/v0.2.3...v0.3.0) (2020-04-13)
 
 
