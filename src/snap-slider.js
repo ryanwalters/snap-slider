@@ -104,7 +104,7 @@ export default class SnapSlider {
   addIntersectionObservers() {
     // Threshold needs to be slightly below 1, otherwise buttons will sometimes fail to disable
 
-    const threshold = 0.95;
+    const threshold = 0.94;
 
     // Disable Previous button when the first slide is 100% in view
 
