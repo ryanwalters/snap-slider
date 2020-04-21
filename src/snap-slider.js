@@ -25,7 +25,6 @@ export default class SnapSlider {
     this.$slider.classList.add('rw-slider');
     this.$track.classList.add('rw-track');
 
-
     // Move slides into track
 
     this.$track.append(...this.$slider.children);
@@ -126,8 +125,6 @@ export default class SnapSlider {
 
     this.nextButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
       const isIntersecting = intersectionRatio >= threshold;
-
-      console.log(intersectionRatio, isIntersecting);
 
       this.$buttonNext.disabled = isIntersecting;
       this.$buttonNext.classList.toggle('rw-disabled', isIntersecting);
