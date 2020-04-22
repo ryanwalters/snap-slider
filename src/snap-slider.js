@@ -1,20 +1,23 @@
 export default class SnapSlider {
   /**
    * @constructor
-   * @param {Element} $slider
-   * @param {Element} [$buttonPrev]
-   * @param {Element} [$buttonNext]
+   * @param {Element} $slider       The parent element containing the slides
+   * @param {Element} [$buttonPrev] Custom previous button
+   * @param {Element} [$buttonNext] Custom next button
+   * @param {number}  [scrollRatio] The percentage of the track that should be scrolled; 0: 0%, 0.5: 50%, 1: 100%; default: 1
    */
 
   constructor({
                 $slider,
                 $buttonPrev,
                 $buttonNext,
+                scrollRatio = 1,
               }) {
     this.$slider = $slider;
     this.$track = document.createElement('div');
     this.$buttonNext = $buttonNext;
     this.$buttonPrev = $buttonPrev;
+    this.scrollRatio = scrollRatio;
 
     this.addMutationObservers();
 
@@ -60,14 +63,14 @@ export default class SnapSlider {
   attachButtonListeners() {
     this.$buttonPrev.addEventListener('click', () => {
       this.$track.scrollBy({
-        left: -this.$track.clientWidth,
+        left: -this.$track.clientWidth * this.scrollRatio,
         behavior: 'smooth',
       });
     });
 
     this.$buttonNext.addEventListener('click', () => {
       this.$track.scrollBy({
-        left: this.$track.clientWidth,
+        left: this.$track.clientWidth * this.scrollRatio,
         behavior: 'smooth',
       });
     });
