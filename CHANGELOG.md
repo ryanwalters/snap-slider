@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/ryanwalters/snap-slider/compare/v0.3.3...v0.3.4) (2020-04-24)
+
+
+### Features
+
+* allow setting buttons to null ([837ab70](https://github.com/ryanwalters/snap-slider/commit/837ab7044b39402275d53c4b0080383e083a1da7))
+
+
+### Bug Fixes
+
+* set .rw-slide to display: inline-block ([747a669](https://github.com/ryanwalters/snap-slider/commit/747a66964f9cb0e8e7ad1f9fdf12458fd07ed141))
+
 ### [0.3.3](https://github.com/ryanwalters/snap-slider/compare/v0.3.2...v0.3.3) (2020-04-22)
 
 
