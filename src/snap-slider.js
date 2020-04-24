@@ -38,13 +38,13 @@ export default class SnapSlider {
 
     // Build and append arrows if existing arrows weren't passed
 
-    if (!$buttonPrev) {
+    if (typeof $buttonPrev === 'undefined') {
       this.$buttonPrev = SnapSlider.createButton('Previous');
 
       this.$slider.append(this.$buttonPrev);
     }
 
-    if (!$buttonNext) {
+    if (typeof $buttonNext === 'undefined') {
       this.$buttonNext = SnapSlider.createButton('Next');
 
       this.$slider.append(this.$buttonNext);
@@ -61,19 +61,23 @@ export default class SnapSlider {
    */
 
   attachButtonListeners() {
-    this.$buttonPrev.addEventListener('click', () => {
-      this.$track.scrollBy({
-        left: -this.$track.clientWidth * this.scrollRatio,
-        behavior: 'smooth',
+    if (this.$buttonPrev) {
+      this.$buttonPrev.addEventListener('click', () => {
+        this.$track.scrollBy({
+          left: -this.$track.clientWidth * this.scrollRatio,
+          behavior: 'smooth',
+        });
       });
-    });
+    }
 
-    this.$buttonNext.addEventListener('click', () => {
-      this.$track.scrollBy({
-        left: this.$track.clientWidth * this.scrollRatio,
-        behavior: 'smooth',
+    if (this.$buttonNext) {
+      this.$buttonNext.addEventListener('click', () => {
+        this.$track.scrollBy({
+          left: this.$track.clientWidth * this.scrollRatio,
+          behavior: 'smooth',
+        });
       });
-    });
+    }
   }
 
   /**
@@ -114,8 +118,11 @@ export default class SnapSlider {
     this.prevButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
       const isIntersecting = intersectionRatio >= threshold;
 
-      this.$buttonPrev.disabled = isIntersecting;
-      this.$buttonPrev.classList.toggle('rw-disabled', isIntersecting);
+      if (this.$buttonPrev) {
+        this.$buttonPrev.disabled = isIntersecting;
+        this.$buttonPrev.classList.toggle('rw-disabled', isIntersecting);
+      }
+
       this.$slider.classList.toggle('rw-prev-disabled', isIntersecting);
     }, {
       root: this.$track,
@@ -129,8 +136,11 @@ export default class SnapSlider {
     this.nextButtonObserver = new IntersectionObserver(([{ intersectionRatio }]) => {
       const isIntersecting = intersectionRatio >= threshold;
 
-      this.$buttonNext.disabled = isIntersecting;
-      this.$buttonNext.classList.toggle('rw-disabled', isIntersecting);
+      if (this.$buttonNext) {
+        this.$buttonNext.disabled = isIntersecting;
+        this.$buttonNext.classList.toggle('rw-disabled', isIntersecting);
+      }
+
       this.$slider.classList.toggle('rw-next-disabled', isIntersecting);
     }, {
       root: this.$track,
