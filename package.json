@@ -16,7 +16,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
-  "files": ["dist"],
+  "files": ["dist", "src"],
   "keywords": [
     "snap",
     "scroll",
