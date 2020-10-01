@@ -1,4 +1,4 @@
-export default class SnapSlider {
+export class SnapSlider {
   /**
    * @constructor
    * @param {Element} $slider       The parent element containing the slides
