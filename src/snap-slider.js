@@ -4,6 +4,7 @@ class SnapSlider {
    * @param {Element} $slider       The parent element containing the slides
    * @param {Element} [$buttonPrev] Custom previous button
    * @param {Element} [$buttonNext] Custom next button
+   * @param {Element} [$track]      User-provided track for appending the items to scroll
    * @param {number}  [scrollRatio] The percentage of the track that should be scrolled; 0: 0%, 0.5: 50%, 1: 100%; default: 1
    */
 
@@ -11,30 +12,30 @@ class SnapSlider {
                 $slider,
                 $buttonPrev,
                 $buttonNext,
+                $track,
                 scrollRatio = 1,
               }) {
     this.$slider = $slider;
-    this.$track = document.createElement('div');
     this.$buttonNext = $buttonNext;
     this.$buttonPrev = $buttonPrev;
+    this.$track = $track || document.createElement('div');
     this.scrollRatio = scrollRatio;
 
     this.addMutationObservers();
 
     // --- Assemble the slider
 
+    // Move the slides into the dynamically created track, then append it to the slider
+
+    if (!this.$slider.contains(this.$track)) {
+      this.$track.append(...this.$slider.children);
+      this.$slider.append(this.$track);
+    }
+
     // Apply classes
 
     this.$slider.classList.add('rw-slider');
     this.$track.classList.add('rw-track');
-
-    // Move slides into track
-
-    this.$track.append(...this.$slider.children);
-
-    // Append track to slider
-
-    this.$slider.append(this.$track);
 
     // Build and append arrows if existing arrows weren't passed
 
