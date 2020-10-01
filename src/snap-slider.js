@@ -1,4 +1,4 @@
-export class SnapSlider {
+class SnapSlider {
   /**
    * @constructor
    * @param {Element} $slider       The parent element containing the slides
@@ -176,3 +176,5 @@ export class SnapSlider {
     return $button;
   }
 }
+
+export { SnapSlider };
