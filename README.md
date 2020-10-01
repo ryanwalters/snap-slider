@@ -50,7 +50,7 @@ https://ryanwalters.github.io/snap-slider/
 ```
 
 ```javascript
-import SnapSlider from 'snap-slider';
+import { SnapSlider } from 'snap-slider';
 import 'snap-slider/src/snap-slider.css';
 
 const { $track } = new SnapSlider({ 
