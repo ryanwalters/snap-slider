@@ -29,6 +29,7 @@ https://ryanwalters.github.io/snap-slider/
 | `$slider`\*     | `Element` | *none*     | The element containing the slides. |
 | `$buttonPrev` | `Element` | `<button>` | Custom previous button. |
 | `$buttonNext` | `Element` | `<button>` | Custom next button. |
+| `$track` | `Element` | `<div>` | Allows the use of a custom element to be used for the track that contains the slides. Useful, for example, for composing React components. |
 | `scrollRatio` | `number`  | `1`        | The percentage of the track that should be scrolled. Example: a value of `0.75` will scroll 75% of the width of the container. |
 
 ### Usage
