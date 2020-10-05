@@ -18,6 +18,5 @@
 .rw-slide {
     display: inline-block;
     scroll-snap-align: start;
-    vertical-align: top;
     white-space: normal;
 }
