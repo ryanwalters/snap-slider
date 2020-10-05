@@ -25,9 +25,19 @@ class SnapSlider {
 
     // --- Assemble the slider
 
-    // Move the slides into the dynamically created track, then append it to the slider
+    // If the $track option was passed...
 
-    if (!this.$slider.contains(this.$track)) {
+    if (this.$slider.contains(this.$track)) {
+      // ...apply the slide class to each child
+
+      this.$track.childNodes.forEach((child) => {
+        if (child.classList) {
+          child.classList.add('rw-slide');
+        }
+      });
+    } else {
+      // ...otherwise, move the slides into the dynamically created track, then append it to the slider
+
       this.$track.append(...this.$slider.children);
       this.$slider.append(this.$track);
     }
