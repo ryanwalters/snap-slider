@@ -1,11 +1,12 @@
 class SnapSlider {
   /**
    * @constructor
-   * @param {Element} $slider       The parent element containing the slides
-   * @param {Element} [$buttonPrev] Custom previous button
-   * @param {Element} [$buttonNext] Custom next button
-   * @param {Element} [$track]      User-provided track for appending the items to scroll
-   * @param {number}  [scrollRatio] The percentage of the track that should be scrolled; 0: 0%, 0.5: 50%, 1: 100%; default: 1
+   * @param {Element} $slider         The parent element containing the slides
+   * @param {Element} [$buttonPrev]   Custom previous button
+   * @param {Element} [$buttonNext]   Custom next button
+   * @param {Element} [$track]        User-provided track for appending the items to scroll
+   * @param {number}  [scrollRatio]   The percentage of the track that should be scrolled; 0: 0%, 0.5: 50%, 1: 100%; default: 1
+   * @param {string}  [verticalAlign] Sets the vertical alignment of the slide; Accepts baseline, top, middle, bottom, sub, text-top
    */
 
   constructor({
@@ -14,12 +15,14 @@ class SnapSlider {
                 $buttonNext,
                 $track,
                 scrollRatio = 1,
+                verticalAlign,
               }) {
     this.$slider = $slider;
     this.$buttonNext = $buttonNext;
     this.$buttonPrev = $buttonPrev;
     this.$track = $track || document.createElement('div');
     this.scrollRatio = scrollRatio;
+    this.verticalAlign = verticalAlign;
 
     this.addMutationObservers();
 
@@ -30,11 +33,7 @@ class SnapSlider {
     if (this.$slider.contains(this.$track)) {
       // ...apply the slide class to each child
 
-      this.$track.childNodes.forEach((child) => {
-        if (child.classList) {
-          child.classList.add('rw-slide');
-        }
-      });
+      this.$track.childNodes.forEach((child) => this.styleSlide(child));
     } else {
       // ...otherwise, move the slides into the dynamically created track, then append it to the slider
 
@@ -101,7 +100,7 @@ class SnapSlider {
     this.mutationObserver = new MutationObserver(([entry]) => {
       // ...add the .rw-slide class to each new node
 
-      entry.addedNodes.forEach(node => node.classList.add('rw-slide'));
+      entry.addedNodes.forEach(node => this.styleSlide(node));
 
       // ...re-observe the first and last elements
 
@@ -159,6 +158,17 @@ class SnapSlider {
     });
 
     this.nextButtonObserver.observe(this.$track.lastElementChild);
+  }
+
+  /**
+   * Apply classes and styles to the slide
+   */
+
+  styleSlide(element) {
+    if (element.classList) {
+      element.classList.add('rw-slide');
+      element.style.verticalAlign = this.verticalAlign;
+    }
   }
 
   /**
