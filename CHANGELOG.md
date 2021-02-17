@@ -1,4 +1,6 @@
-# Changelog
+# See [Releases](https://github.com/ryanwalters/snap-slider/releases) for Changelog updates after 0.3.4
+
+## Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
