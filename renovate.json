@@ -1,6 +1,5 @@
 {
   "extends": ["config:base", "schedule:monthly"],
-  "baseBranches": ["dev"],
   "reviewers": ["ryanwalters"],
   "packageRules": [
     {
