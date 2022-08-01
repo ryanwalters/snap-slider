@@ -39,7 +39,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.77.2",
     "semantic-release": "19.0.3",
-    "serve": "13.0.4"
+    "serve": "14.0.1"
   },
   "commitlint": {
     "extends": [
