@@ -1,10 +1,10 @@
-import { esnext, module, main } from './package.json';
+const { esnext, module: esModule, main } = require('./package.json');
 
-export default {
+module.exports = {
   input: esnext,
   output: [
     {
-      file: module,
+      file: esModule,
       format: 'es',
       sourcemap: true,
     },
